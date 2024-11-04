@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Bank transaction</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+     <!-- Bank transition -->
+     <div class="background">
+          <div class="login">
+               <h3>Welcome to SBI Bank</h3>
+               <h1>LOGIN</h1>
+               <input id="email" class="input" type="text" placeholder="Email" required> <br>
+               <input id="password" class="input" type="password" placeholder="password"><br>
+               <p id="error" style="color: red; text-align: left; display: none; font-size: 12px;">
+                    <b>Note: </b><span id="errorMessage">Error Message</span>
+               </p>
+               <button id="btn" onclick="submitbtn()">LOGIN</button>
+          </div>
+     </div>
+
+     <!-- next page -->
+     <script src="main.js"></script>
+</body>
+
+</html>
