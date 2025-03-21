@@ -80,6 +80,10 @@
 .transaction {
     border: 2px solid rgba(223, 223, 223, 0.701);
     box-shadow: 6px 3px 5px 0px rgba(9, 93, 112, 0.875);
+    max-width: 100%; 
+     width: 410px; 
+     height: 190px; padding: 20px;
+     background-color: #e9e8e892;
 }
 
 .heading h3 {
@@ -137,5 +141,12 @@ label {
 }
 
 .table thead {
+    background-color: transparent;
+}
+
+.table{
+    background-color: #512121 !important;
+}
+.abc{
     background-color: transparent;
 }

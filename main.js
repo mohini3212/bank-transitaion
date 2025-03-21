@@ -3,10 +3,7 @@ var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let password = document.getElementById("password");
 function submitbtn() {
 
-    // if (email.value === "" || password.value === "") {
-    //     alert("Please fill all the fields")
-
-    // }
+    
     if (email.value === "") {
         error.style.display = "block";
         errorMessage.innerHTML = "Email is Required";
@@ -34,27 +31,11 @@ function submitbtn() {
 
 // deposit  amount
 function depositamount() {
-    let depositInput = document.getElementById("deposit");
-    let deposit = depositInput.value;
-
+let depositInput = document.getElementById("deposit");
     let depositAmt = document.getElementById("deposit-amt");
     let totalBalance = document.getElementById("total-balance");
     let depositHistory = document.getElementById("deposit-history");
     let depositDate = document.getElementById("deposit-date");
-
-
-    // new deposit amount
-    const newDepositAmt = Number(depositAmt.innerText.slice(1)) + Number(deposit);
-    const finalamt = Number(totalBalance.innerText.slice(1)) + Number(deposit);
-    const depositresult = Number(depositHistory.innerText.slice(1)) + Number(deposit);
-
-    //    update current amount
-    depositAmt.innerText = "$" + newDepositAmt;
-    totalBalance.innerText = "$" + finalamt;
-    depositHistory.innerText = "$" + depositresult;
-
-    // clear input value
-    depositInput.value = "";
 
     // how to form date
     var d = new Date;
@@ -63,28 +44,34 @@ function depositamount() {
     var day = d.getDate();
     var year = d.getFullYear();
     let formattedDate = day + ", " + month + " " + year;
+   
 
-    depositDate.innerText = formattedDate;
+    let deposit = depositInput.value;
+        // new deposit amount
+    const newDepositAmt = Number(depositAmt.innerText.slice(1)) + Number(deposit);
+    const finalamt = Number(totalBalance.innerText.slice(1)) + Number(deposit);
+    const depositresult = Number(depositHistory.innerText.slice(1)) + Number(deposit);
 
-    // 
-    let tableBody = document.getElementById("table-body");
-    let newRow = document.createElement("tr");
+    //    update current amount
+    depositAmt.innerText = "$" + newDepositAmt;
+    totalBalance.innerText = "$" + finalamt;
+    depositresult.innerText = "$" + depositresult;
 
-    // Add cells for each piece of data
+    // clear input value
+    depositInput.value = "";
+ 
+     // 
+     let tableBody = document.getElementById("table-body");
+     let newRow = document.createElement("tr");
+        // Add cells for each piece of data
     newRow.innerHTML = `
         <td><img src="/icon/account.png" alt="Profile" width="30"></td>
         <td>${formattedDate}</td>
         <td>${deposit}</td>
-        
-    `;
-
+         `;
     // Append the new row to the table body
     tableBody.appendChild(newRow);
 }
-
-
-
-
 
 
 // transaction amount
@@ -109,7 +96,7 @@ function transferamount() {
     //    update current amount
     transferAmt.innerText = "$" + newTransferAmt;
     totalBalance.innerText = "$" + finalAmt;
-    transferHistory.innerText = "$" + transferResult;
+    transferResult.innerText = "$" + transferResult;
 
     // current dates
     var d = new Date();
@@ -118,9 +105,6 @@ function transferamount() {
     var day = d.getDate();
     var year = d.getFullYear();
     let formattedDate = day + ", " + month + " " + year;
-
-    transferDate.innerText = formattedDate;
-
     // 
     let tableBody = document.getElementById("table-body2");
     let newRow = document.createElement("tr");
@@ -130,12 +114,9 @@ function transferamount() {
         <td><img src="icon/account.png" alt="Profile" width="30"></td>
         <td>${formattedDate}</td>
         <td>${transfer}</td>
-        
-    `;
-
+            `;
     // Append the new row to the table body
     tableBody.appendChild(newRow);
-
 }
 
 
@@ -168,7 +149,7 @@ function withdrawamount() {
         // Update current amount
         withdrawAmt.innerText = "$" + newWithdrawAmt;
         totalBalance.innerText = "$" + finalamt;
-        withdrawHistory.innerText = "$" + withdrawresult;
+        withdrawresult.innerText = "$" + withdrawresult;
 
         // Set current date
         var d = new Date();
@@ -177,8 +158,6 @@ function withdrawamount() {
         var day = d.getDate();
         var year = d.getFullYear();
         let formattedDate = day + ", " + month + " " + year;
-
-        withdrawDate.innerText = formattedDate;
 
         // 
         let tableBody = document.getElementById("table-body3");
@@ -189,16 +168,10 @@ function withdrawamount() {
             <td><img src="icon/account.png" alt="Profile" width="30"></td>
             <td>${formattedDate}</td>
             <td>${withdraw}</td>
-            
-        `;
+                    `;
 
         // Append the new row to the table body
         tableBody.appendChild(newRow);
-
-
-
-
-
     }
 }
 
